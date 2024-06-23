@@ -1,87 +1,64 @@
 <template>
-  <v-card class="m-x-5 m-y-5">
-    <v-text-field
-      v-model="search"
-      label="Search"
-      prepend-inner-icon="mdi-magnify"
-      variant="outlined"
-      hide-details
-      single-line
-    ></v-text-field>
-    <v-data-table
-      multi-sort
-      :headers="headers"
-      v-model="selected"
-      :items="items"
-      item-value="name"
-      show-select
-      :loading="loading"
-      :search="search"
-      :items-per-page="20"
-    >
-      <template v-slot:text></template>
-      <template v-slot:loading>
-        <v-skeleton-loader type="table-row@20"></v-skeleton-loader>
-      </template>
-      <template v-slot:item.status="{ item }">
-        <v-chip
-          :color="
-            item.status === 'running'
-              ? 'red'
-              : item.status === 'scheduled'
-              ? 'blue'
-              : 'green'
-          "
-          :text="item.status"
-          class="text-uppercase"
-          size="small"
-          label
-        ></v-chip>
-      </template>
-      <template v-slot:item.type="{ item }">
-        <v-chip
-          :text="item.type"
-          class="text-uppercase"
-          size="small"
-          label
-        ></v-chip>
-      </template>
-      <template v-slot:item.actions="{ item }">
-        <v-btn-group>
-          <v-btn icon="mdi-pencil" size="small"></v-btn>
-          <v-btn icon="mdi-delete" size="small"></v-btn>
-          <v-btn icon="mdi-file-edit" size="small"></v-btn>
-        </v-btn-group> </template
-    ></v-data-table>
-  </v-card>
-  <v-navigation-drawer
-    v-model="rightEditDrawer"
-    width="400"
-    location="right"
-    v-if="selected.length > 0"
+  <v-card
+    class="mt-5 ml-5 mb-0 mr-0 h-400px aspect-1 max-w-400px max-h-400px overflow-auto"
+    prepend-icon="mdi-view-list"
+    title="All Exams"
+    append-icon="mdi-star-check"
   >
-    <v-list>
-      <v-list-subheader>SELECTION ACTIONS</v-list-subheader>
-      <v-list-item>
-        Selected items:
-        <v-chip class="ml-2">{{ selected.length }}</v-chip>
-      </v-list-item>
-      <v-list-item>
-        <v-btn prepend-icon="mdi-select-off" variant="text"
-          >Unselect selected</v-btn
-        >
-      </v-list-item>
-      <v-list-item>
-        <v-btn prepend-icon="mdi-pencil" variant="text">Edit selected</v-btn>
-      </v-list-item>
-      <v-list-item>
-        <v-btn prepend-icon="mdi-delete" variant="text">Delete selected</v-btn>
-      </v-list-item>
-      <v-list-item>
-        <v-btn prepend-icon="mdi-file-edit" variant="text">Edit template</v-btn>
-      </v-list-item>
-    </v-list>
-  </v-navigation-drawer>
+    <v-card-text>
+      <v-text-field
+        v-model="search"
+        label="Search"
+        prepend-inner-icon="mdi-magnify"
+        variant="outlined"
+        hide-details
+        single-line
+      ></v-text-field>
+      <v-data-table
+        multi-sort
+        :headers="headers"
+        v-model="selected"
+        :items="items"
+        item-value="name"
+        show-select
+        :loading="loading"
+        :search="search"
+      >
+        <template v-slot:text></template>
+        <template v-slot:loading>
+          <v-skeleton-loader type="table-row@10"></v-skeleton-loader>
+        </template>
+        <template v-slot:item.status="{ item }">
+          <v-chip
+            :color="
+              item.status === 'running'
+                ? 'red'
+                : item.status === 'scheduled'
+                ? 'blue'
+                : 'green'
+            "
+            :text="item.status"
+            class="text-uppercase"
+            size="small"
+            label
+          ></v-chip>
+        </template>
+        <template v-slot:item.type="{ item }">
+          <v-chip
+            :text="item.type"
+            class="text-uppercase"
+            size="small"
+            label
+          ></v-chip>
+        </template>
+        <template v-slot:item.actions="{ item }">
+          <v-btn-group>
+            <v-btn icon="mdi-pencil" size="small"></v-btn>
+            <v-btn icon="mdi-delete" size="small"></v-btn>
+          </v-btn-group> </template
+      ></v-data-table>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script setup>

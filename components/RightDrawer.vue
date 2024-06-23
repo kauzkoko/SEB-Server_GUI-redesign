@@ -26,7 +26,7 @@
       <v-divider class="m-y-2"></v-divider>
       <v-list-item value="rightDrawerAccountSettings">
         <template v-slot:prepend>
-          <v-icon icon="mdi-account-settings"></v-icon>
+          <v-icon icon="mdi-account-cog"></v-icon>
           <span class="ml-2">Account Settings</span>
         </template>
       </v-list-item>
@@ -55,10 +55,36 @@
           </v-btn-toggle>
         </template>
       </v-list-item>
+      <v-list-item>
+        <template v-slot:prepend>
+          <v-icon icon="mdi-palette"></v-icon>
+          <span class="ml-2">Color Blind Mode</span>
+        </template>
+        <template v-slot:append
+          ><v-btn-toggle mandatory v-model="colorblindMode">
+            <v-btn value="off">Off</v-btn>
+            <v-btn value="on">On</v-btn>
+          </v-btn-toggle>
+        </template>
+      </v-list-item>
+      <v-divider class="m-y-2"></v-divider>
       <v-list-item value="rightDrawerApplicationSettings">
         <template v-slot:prepend>
-          <v-icon icon="mdi-cog"></v-icon>
+          <v-icon icon="mdi-application-cog"></v-icon>
           <span class="ml-2">Application Settings</span>
+        </template>
+      </v-list-item>
+      <v-list-item value="rightDrawerAdministratorSettings">
+        <template v-slot:prepend>
+          <v-icon icon="mdi-account-group"></v-icon>
+          <span class="ml-2">Administration Settings</span>
+        </template>
+      </v-list-item>
+      <v-divider></v-divider>
+      <v-list-item value="rightDrawerLogin">
+        <template v-slot:prepend>
+          <v-icon icon="mdi-logout"></v-icon>
+          <span class="ml-2">Logout</span>
         </template>
       </v-list-item>
     </v-list>
@@ -67,5 +93,5 @@
 
 <script setup>
 const store = useGstore();
-const { rightDrawer, language, darkmode } = storeToRefs(store);
+const { rightDrawer, language, darkmode, colorblindMode } = storeToRefs(store);
 </script>

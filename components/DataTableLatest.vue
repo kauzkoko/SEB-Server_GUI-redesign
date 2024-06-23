@@ -9,7 +9,7 @@
       single-line
     ></v-text-field>
     <v-data-table
-      multi-sort
+      v-model:sort-by="sortBy"
       :headers="headers"
       v-model="selected"
       :items="items"
@@ -17,11 +17,11 @@
       show-select
       :loading="loading"
       :search="search"
-      :items-per-page="20"
+      :items-per-page="10"
     >
       <template v-slot:text></template>
       <template v-slot:loading>
-        <v-skeleton-loader type="table-row@20"></v-skeleton-loader>
+        <v-skeleton-loader type="table-row@10"></v-skeleton-loader>
       </template>
       <template v-slot:item.status="{ item }">
         <v-chip
@@ -50,7 +50,6 @@
         <v-btn-group>
           <v-btn icon="mdi-pencil" size="small"></v-btn>
           <v-btn icon="mdi-delete" size="small"></v-btn>
-          <v-btn icon="mdi-file-edit" size="small"></v-btn>
         </v-btn-group> </template
     ></v-data-table>
   </v-card>
@@ -63,22 +62,23 @@
     <v-list>
       <v-list-subheader>SELECTION ACTIONS</v-list-subheader>
       <v-list-item>
-        Selected items:
-        <v-chip class="ml-2">{{ selected.length }}</v-chip>
-      </v-list-item>
-      <v-list-item>
-        <v-btn prepend-icon="mdi-select-off" variant="text"
-          >Unselect selected</v-btn
+        <v-btn prepend-icon="mdi-pencil" variant="text"
+          >Edit selected<v-chip class="ml-2">{{
+            selected.length
+          }}</v-chip></v-btn
         >
       </v-list-item>
       <v-list-item>
-        <v-btn prepend-icon="mdi-pencil" variant="text">Edit selected</v-btn>
+        <v-btn prepend-icon="mdi-delete" variant="text"
+          >Delete <v-chip class="ml-2">{{ selected.length }}</v-chip></v-btn
+        >
       </v-list-item>
       <v-list-item>
-        <v-btn prepend-icon="mdi-delete" variant="text">Delete selected</v-btn>
-      </v-list-item>
-      <v-list-item>
-        <v-btn prepend-icon="mdi-file-edit" variant="text">Edit template</v-btn>
+        <v-btn prepend-icon="mdi-grid" variant="text"
+          >Change template<v-chip class="ml-2">{{
+            selected.length
+          }}</v-chip></v-btn
+        >
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
@@ -106,7 +106,7 @@ const headers = [
   { title: "Session", key: "session" },
   { title: "Actions", key: "actions" },
 ];
-
+const sortBy = ref([{ key: "date", order: "desc" }]);
 const items = [
   {
     name: "Theoretical Philosophy II",

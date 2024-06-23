@@ -17,11 +17,11 @@
       show-select
       :loading="loading"
       :search="search"
-      :items-per-page="20"
+      :items-per-page="25"
     >
       <template v-slot:text></template>
       <template v-slot:loading>
-        <v-skeleton-loader type="table-row@20"></v-skeleton-loader>
+        <v-skeleton-loader type="table-row@25"></v-skeleton-loader>
       </template>
       <template v-slot:item.status="{ item }">
         <v-chip
@@ -50,7 +50,6 @@
         <v-btn-group>
           <v-btn icon="mdi-pencil" size="small"></v-btn>
           <v-btn icon="mdi-delete" size="small"></v-btn>
-          <v-btn icon="mdi-file-edit" size="small"></v-btn>
         </v-btn-group> </template
     ></v-data-table>
   </v-card>
@@ -63,22 +62,23 @@
     <v-list>
       <v-list-subheader>SELECTION ACTIONS</v-list-subheader>
       <v-list-item>
-        Selected items:
-        <v-chip class="ml-2">{{ selected.length }}</v-chip>
-      </v-list-item>
-      <v-list-item>
-        <v-btn prepend-icon="mdi-select-off" variant="text"
-          >Unselect selected</v-btn
+        <v-btn prepend-icon="mdi-pencil" variant="text"
+          >Edit selected<v-chip class="ml-2">{{
+            selected.length
+          }}</v-chip></v-btn
         >
       </v-list-item>
       <v-list-item>
-        <v-btn prepend-icon="mdi-pencil" variant="text">Edit selected</v-btn>
+        <v-btn prepend-icon="mdi-delete" variant="text"
+          >Delete <v-chip class="ml-2">{{ selected.length }}</v-chip></v-btn
+        >
       </v-list-item>
       <v-list-item>
-        <v-btn prepend-icon="mdi-delete" variant="text">Delete selected</v-btn>
-      </v-list-item>
-      <v-list-item>
-        <v-btn prepend-icon="mdi-file-edit" variant="text">Edit template</v-btn>
+        <v-btn prepend-icon="mdi-grid" variant="text"
+          >Change template<v-chip class="ml-2">{{
+            selected.length
+          }}</v-chip></v-btn
+        >
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
@@ -178,54 +178,6 @@ const items = [
     duration: "02:00",
     session: "2 of 2",
     status: "running",
-    type: "managed",
-  },
-  {
-    name: "Software Engineering",
-    institution: "California Institute of Technology",
-    lecturer: "Prof. Dr. Jessica Lee",
-    date: "2024-02-07",
-    startTime: "11:00",
-    endTime: "13:00",
-    duration: "02:00",
-    session: "1 of 3",
-    status: "finished",
-    type: "managed",
-  },
-  {
-    name: "Computer Networks",
-    institution: "Princeton University",
-    lecturer: "Prof. Dr. Andrew Davis",
-    date: "2024-02-08",
-    startTime: "15:00",
-    endTime: "17:00",
-    duration: "02:00",
-    session: "2 of 3",
-    status: "scheduled",
-    type: "managed",
-  },
-  {
-    name: "Operating Systems",
-    institution: "University of Chicago",
-    lecturer: "Prof. Dr. Jennifer Wilson",
-    date: "2024-02-09",
-    startTime: "17:00",
-    endTime: "19:00",
-    duration: "02:00",
-    session: "3 of 3",
-    status: "finished",
-    type: "managed",
-  },
-  {
-    name: "Computer Graphics",
-    institution: "Columbia University",
-    lecturer: "Prof. Dr. Matthew Johnson",
-    date: "2024-02-10",
-    startTime: "10:00",
-    endTime: "12:00",
-    duration: "02:00",
-    session: "1 of 2",
-    status: "scheduled",
     type: "managed",
   },
   {

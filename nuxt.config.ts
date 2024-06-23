@@ -15,6 +15,7 @@ export default defineNuxtConfig({
       /* module specific options */
     },
     vuetifyOptions: {
+      labComponents: true,
       global: {
         flat: true,
         ripple: true,

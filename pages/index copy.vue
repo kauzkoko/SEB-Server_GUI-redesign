@@ -215,7 +215,7 @@
           <v-list-item value="dashboardwizard">
             <template v-slot:prepend>
               <v-icon icon="mdi-wizard-hat"></v-icon>
-              <span class="ml-2">Step by Step Creator</span>
+              <span class="ml-2">SEB Creator Wizard</span>
             </template>
           </v-list-item>
         </v-list>

@@ -7,34 +7,225 @@
         </v-badge>
       </v-btn>
     </template>
-    <v-list>
-      <v-list-subheader class="uppercase">User Notification</v-list-subheader>
-      <v-list-item
-        ><template v-slot:prepend>
-          <v-icon icon="mdi-alert" color="red"></v-icon>
-        </template>
-        <template v-slot:append>
-          <v-icon icon="mdi-battery-30" class="pb-1 mr-1" size="small"></v-icon>
-          <span>Battery level of User</span>
-          <v-chip class="m-x-1">AFJ2323</v-chip>
-          <span> critically low:</span
-          ><span class="font-bold ml-1">30% battery left.</span></template
-        ></v-list-item
-      >
-      <v-list-item
-        ><template v-slot:prepend>
-          <v-icon icon="mdi-information" color="blue"></v-icon>
-        </template>
-        <template v-slot:append single-line>
-          <v-icon icon="mdi-email" class="pb-1 mr-2" size="small"></v-icon>
-          <span>Text Message from User</span>
-          <v-chip class="m-x-2">AFJ2323</v-chip>
-          <span class="font-bold italic"
-            >Hallo. Ich bin fertig, weiss aber nicht wo der Ausschaltknopf
-            ist... Wo finde ich diesen?</span
-          ></template
-        ></v-list-item
-      >
+    <v-list class="max-w-500px">
+      <v-list-subheader class="uppercase">User Notifications</v-list-subheader>
+      <v-list-item>
+        <v-tabs v-model="tab">
+          <v-tab :value="1">All</v-tab>
+          <v-tab :value="2">Important</v-tab>
+          <v-tab :value="3">Messages</v-tab>
+        </v-tabs>
+        <v-tabs-window v-model="tab">
+          <v-tabs-window-item :value="1">
+            <v-list>
+              <v-list-subheader>Today</v-list-subheader>
+              <v-list-item class="mb-3">
+                <template v-slot:prepend>
+                  <v-icon icon="mdi-alert" color="red"></v-icon>
+                </template>
+                <template v-slot:title>
+                  30%
+                  <v-icon
+                    icon="mdi-battery-30"
+                    size="x-small"
+                    class="mb-1 ml--1"
+                  ></v-icon>
+                  left on <v-chip size="small">ASD232</v-chip></template
+                >
+                <template v-slot:subtitle
+                  >Battery level is low. Please recharge and consider contacting
+                  the user.</template
+                >
+              </v-list-item>
+              <v-list-item class="mb-3">
+                <template v-slot:prepend>
+                  <v-icon icon="mdi-message" color="blue"></v-icon>
+                </template>
+                <template v-slot:title>
+                  Message from
+                  <v-chip size="small">ASD232</v-chip>
+                </template>
+                <template v-slot:subtitle
+                  >Just a quick question: how is nr 23 related to</template
+                >
+                <template v-slot:append>
+                  <v-btn prepend-icon="mdi-reply" variant="text">REPLY</v-btn>
+                </template>
+              </v-list-item>
+              <v-list-item class="mb-3">
+                <template v-slot:prepend>
+                  <v-icon icon="mdi-message"></v-icon>
+                </template>
+                <template v-slot:title>
+                  Message from
+                  <v-chip size="small">60934a</v-chip>
+                </template>
+                <template v-slot:subtitle
+                  >How much time do we have left?</template
+                >
+                <template v-slot:append>
+                  <v-btn prepend-icon="mdi-reply" variant="text">REPLY</v-btn>
+                </template>
+              </v-list-item>
+              <v-list-item class="mb-3">
+                <template v-slot:prepend>
+                  <v-icon icon="mdi-message"></v-icon>
+                </template>
+                <template v-slot:title>
+                  Message from
+                  <v-chip size="small">60934a</v-chip>
+                </template>
+                <template v-slot:subtitle>Heeelp!!!..</template>
+                <template v-slot:append>
+                  <v-btn prepend-icon="mdi-reply" variant="text">REPLY</v-btn>
+                </template>
+              </v-list-item>
+              <v-list-subheader>Yesterday</v-list-subheader>
+              <v-list-item class="mb-3">
+                <template v-slot:prepend>
+                  <v-icon icon="mdi-message"></v-icon>
+                </template>
+                <template v-slot:title>
+                  Message from
+                  <v-chip size="small">60934a</v-chip>
+                </template>
+                <template v-slot:subtitle
+                  >Ok thank you. Will try this out..</template
+                >
+                <template v-slot:append>
+                  <v-btn prepend-icon="mdi-reply" variant="text">REPLY</v-btn>
+                </template>
+              </v-list-item>
+              <v-list-item class="mb-3">
+                <template v-slot:prepend>
+                  <v-icon icon="mdi-alert"></v-icon>
+                </template>
+                <template v-slot:title>
+                  30%
+                  <v-icon
+                    icon="mdi-battery-30"
+                    size="x-small"
+                    class="mb-1 ml--1"
+                  ></v-icon>
+                  left on <v-chip size="small">ASD232</v-chip></template
+                >
+                <template v-slot:subtitle
+                  >Battery level is low. Please recharge and consider contacting
+                  the user.</template
+                >
+              </v-list-item>
+            </v-list>
+          </v-tabs-window-item>
+          <v-tabs-window-item :value="2">
+            <v-list>
+              <v-list-subheader>Today</v-list-subheader>
+              <v-list-item class="mb-3">
+                <template v-slot:prepend>
+                  <v-icon icon="mdi-alert"></v-icon>
+                </template>
+                <template v-slot:title>
+                  30%
+                  <v-icon
+                    icon="mdi-battery-30"
+                    size="x-small"
+                    class="mb-1 ml--1"
+                  ></v-icon>
+                  left on <v-chip size="small">ASD232</v-chip></template
+                >
+                <template v-slot:subtitle
+                  >Battery level is low. Please recharge and consider contacting
+                  the user.</template
+                >
+              </v-list-item>
+              <v-list-subheader>Yesterday</v-list-subheader>
+              <v-list-item class="mb-3">
+                <template v-slot:prepend>
+                  <v-icon icon="mdi-alert"></v-icon>
+                </template>
+                <template v-slot:title>
+                  30%
+                  <v-icon
+                    icon="mdi-battery-30"
+                    size="x-small"
+                    class="mb-1 ml--1"
+                  ></v-icon>
+                  left on <v-chip size="small">ASD232</v-chip></template
+                >
+                <template v-slot:subtitle
+                  >Battery level is low. Please recharge and consider contacting
+                  the user.</template
+                >
+              </v-list-item>
+            </v-list>
+          </v-tabs-window-item>
+          <v-tabs-window-item :value="3">
+            <v-list>
+              <v-list-subheader>Today</v-list-subheader>
+              <v-list-item class="mb-3">
+                <template v-slot:prepend>
+                  <v-icon icon="mdi-message"></v-icon>
+                </template>
+                <template v-slot:title>
+                  Message from
+                  <v-chip size="small">ASD232</v-chip>
+                </template>
+                <template v-slot:subtitle
+                  >Just a quick question: how is nr 23 related to</template
+                >
+                <template v-slot:append>
+                  <v-btn prepend-icon="mdi-reply" variant="text">REPLY</v-btn>
+                </template>
+              </v-list-item>
+              <v-list-item class="mb-3">
+                <template v-slot:prepend>
+                  <v-icon icon="mdi-message"></v-icon>
+                </template>
+                <template v-slot:title>
+                  Message from
+                  <v-chip size="small">60934a</v-chip>
+                </template>
+                <template v-slot:subtitle
+                  >Ok thank you. Will try this out..</template
+                >
+                <template v-slot:append>
+                  <v-btn prepend-icon="mdi-reply" variant="text">REPLY</v-btn>
+                </template>
+              </v-list-item>
+              <v-list-item class="mb-3">
+                <template v-slot:prepend>
+                  <v-icon icon="mdi-message"></v-icon>
+                </template>
+                <template v-slot:title>
+                  Message from
+                  <v-chip size="small">60934a</v-chip>
+                </template>
+                <template v-slot:subtitle
+                  >Ok thank you. Will try this out..</template
+                >
+                <template v-slot:append>
+                  <v-btn prepend-icon="mdi-reply" variant="text">REPLY</v-btn>
+                </template>
+              </v-list-item>
+              <v-list-subheader>Yesterday</v-list-subheader>
+              <v-list-item class="mb-3">
+                <template v-slot:prepend>
+                  <v-icon icon="mdi-message"></v-icon>
+                </template>
+                <template v-slot:title>
+                  Message from
+                  <v-chip size="small">60934a</v-chip>
+                </template>
+                <template v-slot:subtitle
+                  >Ok thank you. Will try this out..</template
+                >
+                <template v-slot:append>
+                  <v-btn prepend-icon="mdi-reply" variant="text">REPLY</v-btn>
+                </template>
+              </v-list-item>
+            </v-list>
+          </v-tabs-window-item>
+        </v-tabs-window>
+      </v-list-item>
     </v-list>
   </v-menu>
 </template>
@@ -42,4 +233,20 @@
 <script setup>
 const store = useGstore();
 const { menu } = storeToRefs(store);
+const tab = ref(null);
+const items = [
+  {
+    notificationType: "battery",
+    prependIcon: "mdi-alert",
+    title: "Low battery",
+  },
+  { type: "divider", inset: true },
+  {
+    notificationType: "message",
+    prependIcon: "mdi-message",
+    title: "Message from",
+    subtitle: `<span class="text-primary">to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.`,
+  },
+  { type: "divider", inset: true },
+];
 </script>

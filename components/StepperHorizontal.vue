@@ -1,5 +1,6 @@
 <template>
   <v-stepper
+    class="m-3"
     editable
     :items="[
       'Create or import an exam',

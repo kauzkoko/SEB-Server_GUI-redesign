@@ -7,6 +7,7 @@ export const useGstore = defineStore("Gstore", {
       selected: ["dashboard"],
       language: 0,
       darkMode: 0,
+      colorblindMode: 0,
       selectedDashboard: ["dashboardall"],
       selectedExams: ["examsall"],
       selectedMonitoring: ["monitoringall"],
@@ -16,10 +17,8 @@ export const useGstore = defineStore("Gstore", {
       loading: false,
       searchInput: false,
       menu: false,
+      subnavigationRail: false,
     };
-  },
-  getters: {
-    nothing: (state) => state.nothing,
   },
   actions: {
     toggleLeftDrawer() {

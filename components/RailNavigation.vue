@@ -1,7 +1,7 @@
 <template>
   <v-navigation-drawer model-value rail>
     <v-list v-model:selected="selected">
-      <v-tooltip text="Dashboard" open-delay="800">
+      <v-tooltip text="Dashboard">
         <template v-slot:activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -12,7 +12,7 @@
           </v-list-item>
         </template>
       </v-tooltip>
-      <v-tooltip text="Exams" open-delay="800">
+      <v-tooltip text="Exams">
         <template v-slot:activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -22,7 +22,7 @@
           ></v-list-item>
         </template>
       </v-tooltip>
-      <v-tooltip text="Monitoring" open-delay="800">
+      <v-tooltip text="Monitoring">
         <template v-slot:activator="{ props }">
           <v-list-item
             v-bind="props"
