@@ -18,6 +18,7 @@ export const useGstore = defineStore("Gstore", {
       searchInput: false,
       menu: false,
       subnavigationRail: false,
+      checkboxes: [],
     };
   },
   actions: {
