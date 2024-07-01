@@ -48,7 +48,11 @@
       </template>
       <template v-slot:item.actions="{ item }">
         <v-btn-group>
-          <v-btn icon="mdi-pencil" size="small"></v-btn>
+          <v-btn
+            icon="mdi-pencil"
+            size="small"
+            @click="sebSettings = !sebSettings"
+          ></v-btn>
           <v-btn icon="mdi-delete" size="small"></v-btn>
           <v-btn icon="mdi-file-edit" size="small"></v-btn>
         </v-btn-group> </template
@@ -72,7 +76,12 @@
         >
       </v-list-item>
       <v-list-item>
-        <v-btn prepend-icon="mdi-pencil" variant="text">Edit selected</v-btn>
+        <v-btn
+          prepend-icon="mdi-pencil"
+          variant="text"
+          @click="sebSettings = !sebSettings"
+          >Edit selected</v-btn
+        >
       </v-list-item>
       <v-list-item>
         <v-btn prepend-icon="mdi-delete" variant="text">Delete selected</v-btn>
@@ -82,7 +91,7 @@
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
-  <SEBSettings />
+  <SEBSettings v-if="sebSettings" />
 </template>
 
 <script setup>
@@ -107,6 +116,7 @@ const headers = [
   { title: "Session", key: "session" },
   { title: "Actions", key: "actions" },
 ];
+const sebSettings = ref(false);
 
 const items = [
   {
