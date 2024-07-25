@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@pinia-plugin-persistedstate/nuxt",
   ],
+
   vuetify: {
     moduleOptions: {
       /* module specific options */
@@ -26,16 +27,22 @@ export default defineNuxtConfig({
       },
     },
   },
+
   features: {
     devLogs: false,
   },
+
   devServer: {
     port: 4444,
   },
+
   pinia: {
     storesDirs: ["./stores/**"],
   },
+
   piniaPersistedstate: {
     storage: "localStorage",
   },
+
+  compatibilityDate: "2024-07-25",
 });
