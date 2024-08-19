@@ -123,7 +123,7 @@ const items = [
     name: "Theoretical Philosophy II",
     institution: "ETH Zurich",
     lecturer: "Prof. Dr. Thomas Metzinger",
-    date: "2024-02-01",
+    date: "2024/02/01",
     startTime: "08:00",
     endTime: "10:00",
     duration: "02:00",

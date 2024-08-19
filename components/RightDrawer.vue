@@ -94,4 +94,5 @@
 <script setup>
 const store = useGstore();
 const { rightDrawer, language, darkmode, colorblindMode } = storeToRefs(store);
+const selected = ref(null);
 </script>

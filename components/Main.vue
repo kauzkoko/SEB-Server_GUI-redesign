@@ -4,7 +4,7 @@
       <v-container class="d-flex flex-column justify-center align-center">
         <v-card
           title="SEB Exam Import Wizard"
-          subtitle="Import, configure and monitor an exam from your preferred e-learning platform such as Moodle, OpenEdx etc."
+          subtitle="Import and configure an exam from your preferred e-learning platform such as Moodle, OpenEdx etc."
           class="w-full max-w-1400px"
         >
           <StepperImport v-if="selectedDashboard[0] === 'dashboardwizard'" />
