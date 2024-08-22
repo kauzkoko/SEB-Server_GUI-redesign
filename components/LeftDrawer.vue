@@ -53,7 +53,7 @@
         >
         </v-list-item>
         <v-list-item
-          title="SEB Creator Wizard"
+          title="SEB Import Wizard"
           value="sebwizard"
           prepend-icon="mdi-wizard-hat"
         >

@@ -17,7 +17,7 @@
         <v-list-item value="dashboardwizard">
           <template v-slot:prepend>
             <v-icon icon="mdi-wizard-hat"></v-icon>
-            <span class="ml-5">SEB Creator Wizard</span>
+            <span class="ml-5">SEB Exam Import Wizard</span>
           </template>
         </v-list-item>
         <v-list-item value="dashboardcalendar">

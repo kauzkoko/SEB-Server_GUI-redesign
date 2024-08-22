@@ -95,9 +95,10 @@
 </template>
 
 <script setup>
+const store = useGstore();
+const { selectedDatatables: selected, sebSettings } = storeToRefs(store);
 const rightEditDrawer = ref(true);
 const loading = shallowRef(true);
-const selected = ref([]);
 const search = ref("");
 const headers = [
   {
@@ -116,7 +117,6 @@ const headers = [
   { title: "Session", key: "session" },
   { title: "Actions", key: "actions" },
 ];
-const sebSettings = ref(false);
 
 const items = [
   {
