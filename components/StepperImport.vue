@@ -274,8 +274,8 @@
           :color="selectedTable < 0 ? '' : 'blue'"
           @click:prev="activeStep--"
           @click:next="activeStep++"
-          next-text="Select Exam"
-          prev-text="Change Settings"
+          next-text="Next | 3"
+          prev-text="Select E-Learning Platform"
         ></v-stepper-actions
       ></v-stepper-window-item>
       <v-stepper-window-item value="3">
@@ -668,7 +668,7 @@
         <v-stepper-actions
           color="blue"
           @click:prev="activeStep--"
-          prev-text="Change settings"
+          prev-text="Change Import Settings"
         >
           <template v-slot:next>
             <v-btn :loading="saveimportLoading" @click="saveAndImport()"
