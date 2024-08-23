@@ -20,14 +20,15 @@ export const useGstore = defineStore(
     const menu = ref(false);
     const subnavigationRail = ref(false);
     const checkboxes = ref([]);
-    const activeStep = ref(4);
+    const activeStep = ref(0);
     const selectedDatatables = ref([]);
     const sebSettings = ref(false);
+    const { history } = useRefHistory(activeStep);
 
     watch(
       [selected, selectedDashboard, selectedExams, selectedMonitoring],
       () => {
-        activeStep.value = 3;
+        activeStep.value = 0;
       }
     );
 
@@ -81,6 +82,7 @@ export const useGstore = defineStore(
       activeStep,
       selectedDatatables,
       sebSettings,
+      history,
     };
   },
   {
